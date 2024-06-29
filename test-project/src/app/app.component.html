@@ -27,7 +27,7 @@
     <br />
     <p>
         Status mat-card:
-        <b>{{ (cardStatus$ | async) ? 'Open' : 'Closed' }}</b>
+        <b>{{ (cardStatus$ | async) ? 'Opened' : 'Closed' }}</b>
     </p>
 
     <p>Inputuri pentru card-container</p>
@@ -46,7 +46,9 @@
 
     <div class="row">
         <div class="col-md-6">
-            <app-card>
+            <app-card
+                theme="orange"
+                [disabled]="false">
                 <ng-container details>
                     Please detach component and add the content that you need.
                     The icon from the bottom should be the same with the icon

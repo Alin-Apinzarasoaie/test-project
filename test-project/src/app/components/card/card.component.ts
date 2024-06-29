@@ -24,7 +24,7 @@ export class CardComponent implements OnInit {
     public disabled: boolean = false;
 
     @Input()
-    public theme: 'blue' | 'green' | 'yellow' | 'red' | 'orange' = 'orange';
+    public theme: 'blue' | 'green' | 'yellow' | 'red' | 'orange' = 'blue';
 
     public constructor(private readonly _store: Store<CardState>) {}
 
