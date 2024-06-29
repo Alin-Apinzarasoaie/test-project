@@ -15,6 +15,12 @@ $active-opacity: 0.8;
 
 $default-font: 'Work Sans';
 
+@mixin text-ellipsis {
+    overflow: hidden;
+    text-wrap: nowrap;
+    text-overflow: ellipsis;
+}
+
 @mixin font-style($size, $weight, $family) {
     font-size: $size;
     font-weight: $weight;
@@ -96,22 +102,16 @@ div.card-wrapper::ng-deep {
                 overflow: hidden;
                 flex-direction: column;
 
-                .text-ellipsis {
-                    overflow: hidden;
-                    text-wrap: nowrap;
-                    text-overflow: ellipsis;
-                }
-
                 > .mat-card-title {
                     @include font-style(16px, 600, $default-font);
-                    @extend .text-ellipsis;
+                    @include text-ellipsis;
 
                     margin: unset;
                 }
 
                 > .mat-card-subtitle {
                     @include font-style(12px, 400, $default-font);
-                    @extend .text-ellipsis;
+                    @include text-ellipsis;
 
                     color: unset;
                     margin: unset;
@@ -154,6 +154,7 @@ div.card-wrapper::ng-deep {
             0px 1px 1px 0px rgba(0, 0, 0, 0.14);
 
         > .details-header {
+            gap: 16;
             display: flex;
             align-items: center;
             flex-direction: row;
@@ -161,6 +162,7 @@ div.card-wrapper::ng-deep {
 
             > span {
                 @include font-style(16px, 600, $default-font);
+                @include text-ellipsis;
             }
 
             > mat-icon {

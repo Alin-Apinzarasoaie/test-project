@@ -7,10 +7,17 @@ import { CardComponent } from './components/card/card.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
-import { MatRippleModule } from '@angular/material/core';
 import { DisplayComponent } from './components/display/display.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ActionReducerMap, StoreModule } from '@ngrx/store';
+import { cardReducer } from './store/reducers/card.reducer';
+import { AppState } from './store/interfaces/app-state.interface';
+
+const reducers: ActionReducerMap<AppState> = {
+    card: cardReducer,
+};
 
 @NgModule({
     declarations: [AppComponent, CardComponent, DisplayComponent],
@@ -20,9 +27,10 @@ import { MatInputModule } from '@angular/material/input';
         BrowserAnimationsModule,
         MatCardModule,
         MatIconModule,
-        MatRippleModule,
         MatFormFieldModule,
         MatInputModule,
+        ReactiveFormsModule,
+        StoreModule.forRoot(reducers),
     ],
     providers: [],
     bootstrap: [AppComponent],

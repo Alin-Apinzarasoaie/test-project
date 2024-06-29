@@ -27,25 +27,46 @@
     <br />
     <p>
         Status mat-card:
-        <b>Afiseaza aici statusul cardului ( open / closed )</b>
+        <b>{{ (cardStatus$ | async) ? 'Open' : 'Closed' }}</b>
     </p>
 
     <p>Inputuri pentru card-container</p>
 
-    <div style="display: flex; flex-direction: column; width: 200px">
-        <mat-form-field
-            class="example-form-field"
-            appearance="fill">
-            <mat-label>Title container Input</mat-label>
-            <input
-                matInput
-                type="text" />
-        </mat-form-field>
+    <div class="form">
+        <ng-container [formGroup]="formGroup">
+            <mat-form-field>
+                <mat-label>Title container Input</mat-label>
+                <input
+                    matInput
+                    type="text"
+                    formControlName="detailsTitle" />
+            </mat-form-field>
+        </ng-container>
     </div>
 
     <div class="row">
         <div class="col-md-6">
-            <app-card></app-card>
+            <app-card>
+                <ng-container details>
+                    Please detach component and add the content that you need.
+                    The icon from the bottom should be the same with the icon
+                    from cluster card that is active
+                    <br />
+                    Please detach component and add the content that you need.
+                    The icon from the bottom should be the same with the icon
+                    from cluster card that is active
+
+                    <br />
+                    <br />
+                    Please detach component and add the content that you need.
+                    The icon from the bottom should be the same with the icon
+                    from cluster card that is active Please detach component and
+                    add the content that you need. The icon from the bottom
+                    should be the same with the icon from cluster card that is
+                    active Please detach component and add the content that you
+                    need.
+                </ng-container>
+            </app-card>
         </div>
         <div class="col-md-6">
             <app-display></app-display>

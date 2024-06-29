@@ -1,43 +1,32 @@
-<div class="card-wrapper">
-    <mat-card
-        [class]="theme"
-        [ngClass]="{ active: active, disabled: disabled }"
-        (click)="onCardClicked()">
-        <div class="card-container">
-            <div class="card-header">
-                <mat-card-title> {{ title }} </mat-card-title>
-                <mat-card-subtitle> {{ subtitle }} </mat-card-subtitle>
-            </div>
-            <mat-card-content> 0 </mat-card-content>
-        </div>
-        <span class="material-icons-outlined"> file_copy </span>
-    </mat-card>
-
-    <ng-container *ngIf="active">
-        <div class="details-container">
-            <div class="details-header">
-                <span>Title Container</span>
-                <mat-icon (click)="onCloseClicked()">close</mat-icon>
-            </div>
-            <div class="details-content">
-                Please detach component and add the content that you need. The
-                icon from the bottom should be the same with the icon from
-                cluster card that is active
-                <br />
-                Please detach component and add the content that you need. The
-                icon from the bottom should be the same with the icon from
-                cluster card that is active
-
-                <br />
-                <br />
-                Please detach component and add the content that you need. The
-                icon from the bottom should be the same with the icon from
-                cluster card that is active Please detach component and add the
-                content that you need. The icon from the bottom should be the
-                same with the icon from cluster card that is active Please
-                detach component and add the content that you need.
+<ng-container *ngIf="viewModel$ | async as vm">
+    <div class="card-wrapper">
+        <mat-card
+            [class]="theme"
+            [ngClass]="{ active: vm.active, disabled: disabled }"
+            (click)="onCardClicked(vm.active)">
+            <div class="card-container">
+                <div class="card-header">
+                    <mat-card-title> {{ vm.title }} </mat-card-title>
+                    <mat-card-subtitle>
+                        {{ vm.subtitle }}
+                    </mat-card-subtitle>
+                </div>
+                <mat-card-content> 0 </mat-card-content>
             </div>
             <span class="material-icons-outlined"> file_copy </span>
-        </div>
-    </ng-container>
-</div>
+        </mat-card>
+
+        <ng-container *ngIf="vm.active">
+            <div class="details-container">
+                <div class="details-header">
+                    <span>{{ vm.detailsTitle }}</span>
+                    <mat-icon (click)="onCloseClicked()"> close </mat-icon>
+                </div>
+                <div class="details-content">
+                    <ng-content select="[details]"></ng-content>
+                </div>
+                <span class="material-icons-outlined"> file_copy </span>
+            </div>
+        </ng-container>
+    </div>
+</ng-container>
