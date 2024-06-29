@@ -1,0 +1,33 @@
+<div class="container">
+  <h1>Test</h1>
+  <p>Lista de taskuri</p>
+  <ol>
+    <li>Corectat designul la ambele style-uri din componenta card potrivit detaliilor din figma: <a href="https://www.figma.com/design/P9DJKUG0AuGutH5WeQ3kA4/Test-UI?node-id=0-1&t=FfBuK4HTWsBIEl8Y-0">Link figma</a></li>
+    <li>Adaptat mat-card-ul pentru fiecare state descrie in figma ( default, hover, active ( clicked ), disabled )</li>
+    <li>Preluat informatiile din display component si utilizate in card component ( title si subtitle )</li>
+    <li>Containerul apare cand cardul este in active state, close button ascunde containerul si dezactiveaza active state-ul.</li>
+  </ol>
+
+  <br />
+  <p>Status mat-card: <b>Afiseaza aici statusul cardului ( open / closed )</b></p>
+  
+  <p>Inputuri pentru card-container</p>
+
+  <div style="display: flex; flex-direction: column; width: 200px;">
+    <mat-form-field class="example-form-field" appearance="fill">
+      <mat-label>Title container Input</mat-label>
+      <input matInput type="text" >
+    </mat-form-field>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <app-card></app-card>
+    </div>
+    <div class="col-md-6">
+      <app-display></app-display>
+    </div>
+  </div>
+  
+
+</div>

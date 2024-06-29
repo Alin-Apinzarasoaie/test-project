@@ -1,0 +1,84 @@
+@use '@angular/material' as mat;
+
+::ng-deep .mat-card {
+    padding: 16px;
+    background-color: #2E5DA4;
+    height: 114px;
+    width: 215px;
+  
+  &.cdk-drag-dragging {
+    box-shadow: 0px 3px 5px -1px rgb(0 0 0 / 20%), 0px 6px 10px 0px rgb(0 0 0 / 14%), 0px 1px 18px 0px rgb(0 0 0 / 12%);
+    z-index: 3;
+  }
+
+  .mat-card-image {
+    height: 90px;
+    object-fit: cover;
+  }
+
+  .mat-card-title {
+    min-height: 40px !important;
+    margin-bottom: 0;
+    margin: 16px 0;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+  }
+  
+  .mat-card-image {
+    width: calc(100% + 48px);
+    margin: 0 -24px 16px -24px;
+
+    &:first-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &.mat-ripple {
+    cursor: pointer;
+    min-width: 224px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    >.mat-card-title {
+      min-height: 24px;
+      align-self: flex-start;
+      max-width: 75%;
+      line-height: 20px;
+      margin-bottom: 4px;
+      font-size: 16px;
+    }
+
+    >.mat-card-subtitle {
+      margin-bottom: 0;
+      font-size: 12px;
+      color: inherit;
+    }
+
+    >.mat-card-content {
+      width: 100%;
+    }
+
+    >.mat-icon {
+      position: absolute;
+      bottom: -12px;
+      right: 0;
+      color: white;
+      opacity: .2;
+      font-size: 50px;
+      width: auto;
+      height: auto;
+    }
+  }
+
+}
+
+.card-container{
+  width: 580px;
+  border: 1px solid;
+  padding: 24px;
+}
+
+
+
